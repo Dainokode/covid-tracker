@@ -1,0 +1,65 @@
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+
+    .card {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .custom-select {
+    .select {
+      font-size: 1rem;
+    }
+  }
+
+  .chart-container {
+    width: 320px;
+    height: auto;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+
+    .card {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .chart-container {
+    width: 400px;
+    height: auto;
+  }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+
+    .card {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .chart-container {
+    width: 400px;
+    height: auto;
+  }
+}

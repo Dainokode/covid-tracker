@@ -3,7 +3,7 @@ import CountUp from 'react-countup';
 
 const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
  if(!confirmed){
-  return "Loading..."
+  return <div className="icon-container"><i className="fa fa-spinner fa-spin"></i></div>
  }
  return (
   <div className="cards-container">

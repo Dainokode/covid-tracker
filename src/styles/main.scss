@@ -23,6 +23,16 @@ h1 {
   margin: auto;
 }
 
+.icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  i {
+    font-size: 40px;
+  }
+}
+
 // cards container & cards styles
 .cards-container {
   display: flex;
@@ -58,3 +68,26 @@ h1 {
     border-left: 6px solid #000;
   }
 }
+
+// chart
+.chart-container {
+  width: 900px;
+  height: auto;
+  margin: 4rem auto;
+}
+
+// select
+.custom-select {
+  .select {
+    display: block;
+    margin: 6rem auto;
+    border: none;
+    background: none;
+    border-bottom: 2px solid #333;
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    outline: none;
+  }
+}
+
+@import "responsive";

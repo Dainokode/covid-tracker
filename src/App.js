@@ -4,12 +4,18 @@ import "./styles/main.scss";
 import 'font-awesome/css/font-awesome.min.css';
 
 const App = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState({data: {}, country: ""})
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async (country) => {
+      
+    let changeUrl = "https://covid19.mathdro.id/api";
+
+    if(country){
+      changeUrl = `https://covid19.mathdro.id/api/countries/${country}`;
+    }
+
       try {
-        const response = await fetch("https://covid19.mathdro.id/api");
+        const response = await fetch(changeUrl);
         const data = await response.json();
 
         const customData = {
@@ -19,21 +25,37 @@ const App = () => {
           lastUpdate: data.lastUpdate,
         }
 
-        setData(customData)
+        return customData;
         
       } catch (error) {
         console.log(error)
       }
     }
-    fetchData();
-  }, [])
+
+    useEffect(() => {
+      const fetchedData = async () => {
+        const data = await fetchData()
+        setData({data})
+      }
+      
+      fetchedData()
+    }, [])
+
+  const handleCountryChange = async (country) => {
+    const fetchedData = async () => {
+      const data = await fetchData(country)
+      setData({data, country})
+    }
+    
+    fetchedData()
+  }
 
   return (
     <div className="container">
-    <h1>Covid-19 <i className="fas fa-viruses"></i> Tracker</h1>
-      <Cards data={data}/>
-      <CountryChoice />
-      <Chart />
+    <h1>Covid-19 Tracker</h1>
+      <Cards data={data.data} />
+      <CountryChoice handleCountryChange={handleCountryChange} />
+      <Chart data={data.data} country={data.country} />
     </div>
   )
 }
